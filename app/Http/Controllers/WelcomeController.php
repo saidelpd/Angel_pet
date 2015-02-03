@@ -1,4 +1,5 @@
 <?php namespace App\Http\Controllers;
+use App\Http\Models\Roles;
 
 class WelcomeController extends Controller {
 

@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace App\Http\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -22,7 +22,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password'];
+	protected $fillable = ['first', 'last', 'email', 'country_id', 'password'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -32,4 +32,22 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	protected $hidden = ['password', 'remember_token'];
 
+
+	/**
+	 * Use Belong To One Role
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+	public function role()
+	{
+		return $this->belongsTo(' App\Http\Models\Roles');
+	}
+
+	/**
+	 * Use Belong To One Country
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function country()
+	{
+		return $this->belongsTo(' App\Http\Models\Country');
+	}
 }
