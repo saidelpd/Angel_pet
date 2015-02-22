@@ -1,5 +1,4 @@
 <?php namespace App\Http\Controllers;
-use App\Http\Models\Roles;
 
 class WelcomeController extends Controller {
 
@@ -17,11 +16,13 @@ class WelcomeController extends Controller {
 	/**
 	 * Create a new controller instance.
 	 *
+	 * @return void
 	 */
 	public function __construct()
 	{
 		$this->middleware('guest');
 	}
+
 	/**
 	 * Show the application welcome screen to the user.
 	 *

@@ -16,14 +16,17 @@ class RedirectIfAuthenticated {
 	/**
 	 * Create a new filter instance.
 	 *
-	 * @param  Guard $auth
+	 * @param  Guard  $auth
+	 * @return void
 	 */
 	public function __construct(Guard $auth)
 	{
 		$this->auth = $auth;
 	}
+
 	/**
 	 * Handle an incoming request.
+	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @param  \Closure  $next
 	 * @return mixed
@@ -34,6 +37,7 @@ class RedirectIfAuthenticated {
 		{
 			return new RedirectResponse(url('/home'));
 		}
+
 		return $next($request);
 	}
 
